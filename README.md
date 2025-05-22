@@ -11,7 +11,7 @@ docker network create tp-docker
 ## 2. Create mariadb container
 
 ```bash
-docker run -d --name mariadb-server -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=guestuser -e MYSQL_PASSWORD=guestpassword --network tp-docker --volume ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql --volume mariadb-data:/var/lib/mysql mariadb:11 
+docker run -d --name mariadb-server -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=guestuser -e MYSQL_PASSWORD=guestpassword --network tp-docker --volume $(pwd)/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql --volume mariadb-data:/var/lib/mysql mariadb:11 
 ```
 
 ## 3. Create back
